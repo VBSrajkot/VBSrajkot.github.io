@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivah Bridal Studio - Professional Bridal & Event Makeup Artist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff69b4; /* Hot pink for accents */
+            --secondary-color: #ffd700; /* Gold for elegance */
+            --accent-color: #ff1493; /* Deeper pink for highlights */
+            --bg-color: #fdf2f8; /* Soft pink background */
+            --text-color: #2c3e50; /* Elegant dark slate blue for readability */
+            --text-light: #5a6c7d; /* Lighter slate for secondary text */
+            --white: #ffffff; /* Pure white */
+            --transition-base: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 0.5px;
+        }
+        h1 { font-size: 4.5rem; font-weight: 900; }
+        h2 { font-size: 3rem; font-weight: 700; }
+        p { font-weight: 300; color: var(--text-light); }
+        .lead { font-weight: 400; color: var(--text-color); }
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+            transition: var(--transition-base);
+            padding: 1rem 0;
+        }
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 2rem;
+            color: var(--primary-color) !important;
+            transition: var(--transition-base);
+        }
+        .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 400;
+            margin: 0 1.5rem;
+            transition: var(--transition-base);
+            position: relative;
+            padding-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transition: var(--transition-base);
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+            transform: translateY(-2px);
+        }
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+        }
+        .hero {
+            background: linear-gradient(rgba(255,105,180,0.85), rgba(255,20,147,0.4)), url('https://via.placeholder.com/1920x1080/ff69b4/fff?text=Vivah+Bridal+Portrait') center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            animation: heroSlideIn 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        @keyframes heroSlideIn {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero h1 {
+            font-size: 4.5rem;
+            color: var(--white);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.6);
+            animation: subtleGlow 3s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 1;
+            font-weight: 900;
+        }
+        @keyframes subtleGlow {
+            from { text-shadow: 3px 3px 6px rgba(0,0,0,0.6), 0 0 10px var(--secondary-color); }
+            to { text-shadow: 3px 3px 6px rgba(0,0,0,0.6), 0 0 25px var(--secondary-color); }
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), #ffed4e);
+            border: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            padding: 15px 35px;
+            border-radius: 50px;
+            transition: var(--transition-base);
+            position: relative;
+            overflow: hidden;
+            font-size: 1.1rem;
+            z-index: 1;
+            font-family: 'Poppins', sans-serif;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: var(--transition-base);
+        }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(255,215,0,0.5);
+            color: var(--primary-color);
+        }
+        .section {
+            padding: 100px 0;
+        }
+        .stats-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--white);
+            border-radius: 25px;
+            padding: 50px 20px;
+            text-align: center;
+            transition: var(--transition-base);
+            transform: translateY(0);
+            position: relative;
+            overflow: hidden;
+        }
+        .stats-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transition: var(--transition-base);
+            opacity: 0;
+        }
+        .stats-card:hover::before {
+            opacity: 1;
+            transform: rotate(45deg);
+        }
+        .stats-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(255,105,180,0.4);
+        }
+        .stats-card h3 { color: var(--white); font-weight: 900; }
+        .stats-card p { color: rgba(255,255,255,0.9); font-weight: 400; }
+        .service-card {
+            background: var(--white);
+            border: none;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            transition: var(--transition-base);
+            border: 1px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-12px) rotateX(8deg);
+            box-shadow: 0 25px 60px rgba(255,105,180,0.3);
+            border-color: var(--primary-color);
+        }
+        .service-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            transition: var(--transition-base);
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.15) rotate(15deg);
+            color: var(--secondary-color);
+        }
+        .service-card h4 { color: var(--text-color); font-weight: 600; margin-bottom: 20px; }
+        .service-card p { color: var(--text-light); }
+        .portfolio-grid .card, .insta-grid .card, .youtube-grid .card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition-base);
+            transform: scale(1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .portfolio-grid .card:hover, .insta-grid .card:hover, .youtube-grid .card:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 20px 50px rgba(255,105,180,0.4);
+        }
+        .portfolio-grid img, .insta-grid img, .youtube-grid img {
+            height: 350px;
+            object-fit: cover;
+            transition: var(--transition-base);
+        }
+        .portfolio-grid .card:hover img, .insta-grid .card:hover img, .youtube-grid .card:hover img {
+            transform: scale(1.15);
+            filter: brightness(1.15) contrast(1.1);
+        }
+        .testimonial {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            transition: var(--transition-base);
+            font-style: italic;
+        }
+        .testimonial:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255,105,180,0.2);
+        }
+        .testimonial p { color: var(--text-light); font-weight: 300; }
+        .stars {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+        .cite { color: var(--primary-color); font-weight: 500; font-style: normal; }
+        .contact-form {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: var(--transition-base);
+        }
+        .contact-form:hover {
+            box-shadow: 0 20px 50px rgba(255,105,180,0.2);
+        }
+        .form-control {
+            transition: var(--transition-base);
+            border: 2px solid #eee;
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-color);
+        }
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(255,105,180,0.2);
+            transform: scale(1.02);
+            background: #fff8fb;
+            color: var(--text-color);
+        }
+        .form-control::placeholder { color: var(--text-light); }
+        .form-label {
+            font-weight: 500;
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        .footer p { color: rgba(255,255,255,0.9); }
+        .cert-badge {
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 12px 25px;
+            border-radius: 25px;
+            margin: 8px;
+            display: inline-block;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition-base);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .cert-badge:hover {
+            transform: scale(1.08) translateY(-3px);
+            background: linear-gradient(135deg, var(--secondary-color), #ffed4e);
+            color: var(--primary-color);
+            box-shadow: 0 10px 25px rgba(255,215,0,0.3);
+        }
+        .cert-img {
+            width: 100px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        /* Artist Bio */
+        .artist-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(255,105,180,0.2);
+            transition: var(--transition-base);
+        }
+        .artist-img:hover { transform: scale(1.02); }
+        .artist-bio { font-style: italic; color: var(--text-light); font-weight: 300; }
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+        /* Enhanced animation on scroll with stagger */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: var(--transition-base);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Parallax effect for hero */
+        .hero {
+            background-attachment: fixed;
+        }
+        /* Sticky CTA */
+        .cta-sticky {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            transition: var(--transition-base);
+        }
+        .cta-sticky:hover {
+            transform: scale(1.1);
+        }
+        /* Social links */
+        .social-link {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: var(--transition-base);
+        }
+        .social-link:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        /* Insta and YouTube sections */
+        .insta-section, .youtube-section {
+            background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+        }
+        .insta-grid, .youtube-grid {
+            gap: 20px;
+        }
+        .embed-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* Instagram embed styles */
+        .instagram-media {
+            max-width: 100%;
+            margin: 1em auto !important;
+        }
+        /* Calendar styles */
+        .calendar-input { border-radius: 15px; padding: 15px; border: 2px solid #eee; }
+
+        /* Instagram Grid - 5 cards in one row, equal size */
+        .insta-grid .card {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+        .insta-grid .instagram-media {
+            width: 100% !important;
+            min-width: auto !important;
+            height: 300px; /* Fixed height to prevent scrunching */
+            overflow: hidden;
+        }
+        .insta-grid .card-body {
+            padding: 15px;
+            text-align: center;
+        }
+        .insta-grid .card-title {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+        .insta-grid .card-text {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* YouTube - Muted, Autoplay, Loop, side by side */
+        .youtube-grid .embed-container iframe {
+            pointer-events: none; /* Prevent interaction */
+        }
+        .youtube-grid {
+            display: flex;
+            justify-content: space-between;
+        }
+        .youtube-grid .col-lg-4 {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Vivah Bridal Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home"><i class="fas fa-home me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about"><i class="fas fa-user me-1"></i>About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services"><i class="fas fa-cogs me-1"></i>Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio"><i class="fas fa-images me-1"></i>Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#insta"><i class="fab fa-instagram me-1"></i>Instagram</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#youtube"><i class="fab fa-youtube me-1"></i>YouTube</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials"><i class="fas fa-star me-1"></i>Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-phone me-1"></i>Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-3 mb-4">Transform Your Special Moments</h1>
+                    <p class="lead mb-5">Professional Bridal & Event Makeup and Hairstyling – Where Elegance Meets Radiance</p>
+                    <a href="#contact" class="btn btn-primary btn-lg">Book Your Glow Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-light">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-4 text-center">
+                    <img src="preeti.jpg" alt="Preeti Parmar, Founder of Vivah Bridal Studio" class="img-fluid artist-img fade-in">
+                </div>
+                <div class="col-lg-8">
+                    <h2 class="mb-4">Meet Preeti Parmar</h2>
+                    <p class="lead">Founder of Vivah Bridal Studio, with over 3 years of expertise in crafting bridal dreams into reality.</p>
+                    <p class="artist-bio">Passionate about the art of transformation, Preeti specializes in timeless bridal makeup and hairstyling that exude elegance and confidence. Trained at premier academies, she believes every bride deserves to shine on her most cherished day. "Your wedding is not just an event; it's the beginning of your forever story."</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>With 3 years of passion and precision, we bring professional makeup and hairstyling to life's most cherished moments. Specializing in bridal and event transformations, we create looks that are timeless, elegant, and utterly you. From intimate engagements to grand receptions, every stroke is crafted for confidence and glow.</p>
+                    <p>Trained at premier academies, we blend artistry with expertise to deliver red-carpet worthy results for weddings, parties, and beyond.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="stats-card fade-in">
+                                <h3>33+</h3>
+                                <p>Happy Customers</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stats-card fade-in">
+                                <h3>31</h3>
+                                <p>Model Collaborations</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stats-card fade-in">
+                                <h3>28</h3>
+                                <p>Google Reviews</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stats-card fade-in">
+                                <h3>3</h3>
+                                <p>Years in Beauty</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="text-center mb-4">Our Certifications</h3>
+                    <div class="text-center">
+                        <div class="d-inline-block me-3">
+                            <img src="Trustyle.jpg" alt="Trustyle Hairstyle & Beauty Academy" class="cert-img">
+                            <div class="cert-badge">Trustyle Hairstyle & Beauty Academy - Basics of Hair Cut</div>
+                        </div>
+                        <div class="d-inline-block me-3">
+                            <img src="Prachi.jpg" alt="Prachi's Bridal Academy" class="cert-img">
+                            <div class="cert-badge">Prachi's Bridal Academy - Master Class of Hairstyle at LHB</div>
+                        </div>
+                        <div class="d-inline-block">
+                            <img src="Ajay.jpg" alt="Ajay Shlear Make Up Academy" class="cert-img">
+                            <div class="cert-badge">Ajay Shlear Make Up Academy - Professional Makeup Course</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <i class="fas fa-paint-brush service-icon"></i>
+                        <h4>Professional Makeup</h4>
+                        <p>Custom bridal and event makeup, including stunning red carpet looks that enhance your natural beauty with flawless finishes.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <i class="fas fa-scissors service-icon"></i>
+                        <h4>Hairstyling Expertise</h4>
+                        <p>Elegant updos, waves, and styles tailored for every occasion, ensuring comfort and glamour that lasts all day.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="service-card fade-in">
+                        <i class="fas fa-calendar-alt service-icon"></i>
+                        <h4>Event Specializations</h4>
+                        <ul class="list-unstyled text-start ps-4">
+                            <li><i class="fas fa-check text-primary me-2"></i>Engagement</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Kanku Paglaa</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Mandap Ceremonies</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Sangeet</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Haldi</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Marriage</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Reception</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Baby Shower</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Birthday</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Party</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Business Casual</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Portfolio</h2>
+            <div class="row portfolio-grid g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="image1.jpg" class="card-img-top" alt="Bridal Makeup">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Timeless Bridal Glow</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="image2.jpg" class="card-img-top" alt="Red Carpet">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Red Carpet Elegance</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="image3.jpg" class="card-img-top" alt="Sangeet Hairstyle">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Sangeet Waves</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="image4.jpg" class="card-img-top" alt="Haldi Makeup">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Haldi Radiance</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="image5.jpg" class="card-img-top" alt="Reception Hairstyle">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Reception Updo</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="image6.jpg" class="card-img-top" alt="Party Look">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Party Glam</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section id="insta" class="section insta-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Latest from Instagram</h2>
+            <p class="text-center lead mb-4">Follow our journey on <a href="https://www.instagram.com/vivahbridalstudio_rajkot/" target="_blank" class="text-decoration-none"><i class="fab fa-instagram"></i> @vivahbridalstudio_rajkot</a></p>
+            <div class="row insta-grid g-3">
+                <!-- 5 Instagram posts in one row, same size -->
+                <div class="col">
+                    <div class="card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C-semlfPEp4/" data-instgrm-version="14"></blockquote>
+                        <div class="card-body">
+                            <h6 class="card-title text-primary">Magical Bridal Glow</h6>
+                            <p class="card-text">Transforming dreams into reality with timeless elegance 💖</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C9xSwxYvEt3/" data-instgrm-version="14"></blockquote>
+                        <div class="card-body">
+                            <h6 class="card-title text-primary">Sangeet Sparkle</h6>
+                            <p class="card-text">Bold and beautiful for the dance floor ✨</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CnUUwZoOxgu/" data-instgrm-version="14"></blockquote>
+                        <div class="card-body">
+                            <h6 class="card-title text-primary">Haldi Radiance</h6>
+                            <p class="card-text">Fresh, dewy, and natural – perfect for the golden ceremony 🌸</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Cl3eAD2AA6M/" data-instgrm-version="14"></blockquote>
+                        <div class="card-body">
+                            <h6 class="card-title text-primary">Reception Elegance</h6>
+                            <p class="card-text">Sophisticated updo for a night of celebration 💃</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CkqQ4LVLmrb/" data-instgrm-version="14"></blockquote>
+                        <div class="card-body">
+                            <h6 class="card-title text-primary">Party Glam</h6>
+                            <p class="card-text">Smokey eyes and bold lips for ultimate glamour 🎉</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script async defer src="https://www.instagram.com/embed.js"></script>
+    </section>
+
+    <!-- YouTube Section -->
+    <section id="youtube" class="section youtube-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Featured on YouTube</h2>
+            <p class="text-center lead mb-4">Subscribe to <a href="https://www.youtube.com/@vivahbridalstudio_rajkot2021" target="_blank" class="text-decoration-none"><i class="fab fa-youtube"></i> @vivahbridalstudio_rajkot2021</a> for tutorials and behind-the-scenes.</p>
+            <div class="row youtube-grid g-4">
+                <!-- 3 videos side by side, muted, autoplay, loop -->
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="embed-container">
+                            <iframe src="https://www.youtube.com/embed/y0RMi_JAZEI?autoplay=1&mute=1&loop=1&playlist=y0RMi_JAZEI&modestbranding=1&rel=0" title="Bridal Makeup Tutorial" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title text-primary">Bridal Glow Tutorial</h6>
+                            <p class="small">Step-by-step natural bridal look</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="embed-container">
+                            <iframe src="https://www.youtube.com/embed/MuCn__IDs58?autoplay=1&mute=1&loop=1&playlist=MuCn__IDs58&modestbranding=1&rel=0" title="Sangeet Hairstyle" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title text-primary">Sangeet Waves</h6>
+                            <p class="small">Easy party hairstyle</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="embed-container">
+                            <iframe src="https://www.youtube.com/embed/Bhn8rdYChQs?autoplay=1&mute=1&loop=1&playlist=Bhn8rdYChQs&modestbranding=1&rel=0" title="Haldi Makeup" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title text-primary">Haldi Fresh Look</h6>
+                            <p class="small">Dewy & long-lasting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Clients Say</h2>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="testimonial fade-in">
+                        <div class="stars mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-family: 'Playfair Display', serif; color: var(--primary-color); font-style: italic;">"Preeti's artistry made my wedding day magical. The makeup was flawless and lasted all night!"</p>
+                        <cite class="cite">- Priya Patel (via Google Reviews)</cite>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial fade-in">
+                        <div class="stars mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-family: 'Playfair Display', serif; color: var(--primary-color); font-style: italic;">"Absolutely loved the natural look for my sangeet. Highly recommend Vivah Bridal Studio!"</p>
+                        <cite class="cite">- Neha Sharma (via Google Reviews)</cite>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial fade-in">
+                        <div class="stars mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-family: 'Playfair Display', serif; color: var(--primary-color); font-style: italic;">"Professional, creative, and elegant. My reception hairstyle was perfect!"</p>
+                        <cite class="cite">- Aisha Khan (via Google Reviews)</cite>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="https://g.page/r/Cef77B7jOGjKEBE/review" target="_blank" class="btn btn-primary">See More on Google Reviews</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Book Your Appointment</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form class="contact-form">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="+91 9664669135">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="event" class="form-label">Event Type</label>
+                            <select class="form-control" id="event">
+                                <option>Bridal</option>
+                                <option>Engagement</option>
+                                <option>Sangeet</option>
+                                <option>Reception</option>
+                                <option>Party</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Preferred Date</label>
+                            <input type="date" class="form-control calendar-input" id="date">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message (Optional)</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Any special requests?"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Send Inquiry</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 style="color: var(--secondary-color);">Vivah Bridal Studio</h3>
+                    <p><i class="fas fa-paint-brush" style="font-size: 0.5em; margin-right: 5px;"></i><i class="fas fa-box" style="font-size: 0.5em; margin-right: 5px;"></i> Transforming moments into memories with elegance and artistry.</p>
+                    <p>Location: D 22, Maninagar, society, Street No.4, Rukhsamani Park, Radhika Park, Rajkot, Gujarat 360007</p>
+                    <p>Phone: <a href="tel:+919664669135" class="text-white">+91 9664669135</a></p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <div class="mb-3">
+                        <a href="https://www.instagram.com/vivahbridalstudio_rajkot/" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@vivahbridalstudio_rajkot2021" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/919664669135" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p>&copy; 2025 Vivah Bridal Studio. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth reveal on scroll
+        const fadeElems = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElems.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
